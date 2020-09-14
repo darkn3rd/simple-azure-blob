@@ -16,7 +16,7 @@ module "app_backups" {
   resource_group_name     = var.resource_group_name
   create_resource_group   = true
   storage_account_name    = var.storage_account_name
-  create_storage_account   = true
+  create_storage_account  = true
   storage_container_name  = "app-backups"
 }
 
@@ -28,7 +28,7 @@ module "data_backups" {
   resource_group_name     = module.app_backups.ResourceName
   create_resource_group   = false
   storage_account_name    = module.app_backups.AccountName
-  create_storage_account   = false
+  create_storage_account  = false
   storage_container_name  = "data-backups"
 }
 ```
