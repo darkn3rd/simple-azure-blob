@@ -12,7 +12,7 @@ variable "storage_account_name" {}
 ## Create Resource Group, Storage Account Name
 #####################################################################
 module "app_backups" {
-  source                  = "./modules/azure_blob"
+  source                  = "git::https://github.com/darkn3rd/simple-azure-blob?ref=v0.1"
   resource_group_name     = var.resource_group_name
   create_resource_group   = true
   storage_account_name    = var.storage_account_name
@@ -24,7 +24,7 @@ module "app_backups" {
 ## Create ONLY Blob
 #####################################################################
 module "data_backups" {
-  source                  = "./modules/azure_blob"
+  source                  = "git::https://github.com/darkn3rd/simple-azure-blob?ref=v0.1"
   resource_group_name     = module.app_backups.ResourceName
   create_resource_group   = false
   storage_account_name    = module.app_backups.AccountName
